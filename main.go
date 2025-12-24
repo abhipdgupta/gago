@@ -1,19 +1,16 @@
 package main
 
-import rl "github.com/gen2brain/raylib-go/raylib"
+import (
+	"fmt"
+	"gago/game"
+)
 
 func main() {
-	rl.InitWindow(800, 450, "raylib [core] example - basic window")
-	defer rl.CloseWindow()
+	fmt.Println("Starting the game")
 
-	rl.SetTargetFPS(60)
+	screenWidth := int32(1280)
+	screenHeight := int32(800)
 
-	for !rl.WindowShouldClose() {
-		rl.BeginDrawing()
-
-		rl.ClearBackground(rl.RayWhite)
-		rl.DrawText("Congrats! You created your first window!", 190, 200, 20, rl.LightGray)
-
-		rl.EndDrawing()
-	}
+	g := game.NewGame(screenWidth, screenHeight)
+	g.Run()
 }
